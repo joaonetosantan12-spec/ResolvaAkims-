@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveAkiMS+/Sobre</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-responsive.css">
+    <link rel="stylesheet" href="site-pages.css">
+    
+</head>
+<body class = "body">
+    <div id="loadingScreen">
+        <div class="loader">
+            <div class="three-body">
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+            </div>
+        </div>
+    </div>
+    <nav class="barra-topo" aria-label="Navegação principal">
+        <img src="Images/Logo.png" alt="ResolveAkiMS+" class="logo-topo">
+        <button id="inicio" type="button">Início</button>
+        <button id="sobre" type="button">Sobre</button>
+        <button id="ButtoGames" type="button">Jogos</button>
+        <button id="descubra" type="button">Descubra</button>
+    </nav>
+
+ <script>
+        const botaoSobre = document.getElementById("sobre");
+
+    botaoSobre.addEventListener("click", function(){
+        window.location.href = "Sobre.html"
+    });
+
+      const botaoInicio = document.getElementById("inicio");
+
+    botaoInicio.addEventListener("click", function(){
+        window.location.href = "index.html"
+ });
+
+             const botaoJogos = document.getElementById("ButtoGames");
+
+    botaoJogos.addEventListener("click", function(){
+        window.location.href = "Games.html"
+    });
+
+
+     const botaoDescubra = document.getElementById("descubra");
+
+    botaoDescubra.addEventListener("click", function(){
+        window.location.href = "Descubra.html"
+    })
+ </script>
+
+    <main class="sobre-main">
+        <article class="sobre-artigo" aria-labelledby="sobre-titulo">
+            <p class="sobre-etiqueta">NOSSA HISTÓRIA</p>
+            <h1 id="sobre-titulo">Sobre o ResolveAkiMS+</h1>
+            <div class="sobre-texto">
+                <p>O ResolveAkiMS+ nasceu de um trabalho proposto pelo professor José, da disciplina de Educação Digital. Durante meses, desenvolvemos ideias, pesquisamos, planejamos e trabalhamos na construção deste projeto, buscando transformar nossas propostas em algo que pudesse fazer a diferença na comunidade escolar.</p>
+                <p>Nosso objetivo é oferecer um espaço digital que incentive os estudantes a aprender, compartilhe dicas de estudo, apresente conteúdos educativos e ajude a superar dificuldades do dia a dia escolar.</p>
+                <p>Mais do que desenvolver um site, este trabalho foi uma oportunidade de colocar em prática nossos conhecimentos, explorar a criatividade e aprender sobre tecnologia, programação e trabalho em equipe.</p>
+                <p>O ResolveAkiMS+ representa o resultado de meses de dedicação, aprendizado e desenvolvimento, com um propósito simples: <strong>tornar o conhecimento mais acessível e ajudar cada estudante a encontrar seu próprio caminho para aprender.</strong></p>
+            </div>
+            <a class="sobre-voltar" href="index.html">Voltar ao início <span aria-hidden="true">→</span></a>
+        </article>
+    </main>
+     <footer class="rodape-site">
+        <p>© 2026 Todos os direitos reservados.</p>
+        <p>Desenvolvido por: João Neto, Kamylla, Lidis, Victor H, Gabrielly | José Augusto</p>
+    </footer> 
+
+
+
+<script>
+window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loadingScreen");
+
+    setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+        const sobreArtigo = document.querySelector(".sobre-artigo");
+        if (sobreArtigo) {
+            sobreArtigo.classList.add("sobre-artigo-pronto");
+        }
+
+        setTimeout(() => {
+            loadingScreen.remove();
+        }, 500);
+
+    }, 3000);
+});
+</script>
+
+  <script src="script.js"></script>
+  <script src="site-navigation.js"></script>
+</body>
+</html>

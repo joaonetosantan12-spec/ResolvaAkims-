@@ -1,0 +1,869 @@
+.biodefense-screen {
+    width: min(100%, 960px);
+    margin: 0 auto;
+    color: #fff3f4;
+}
+
+body.biodefense-boss-theme {
+    background:
+        radial-gradient(ellipse at 50% 0, #126acb 0, #073b82 38%, transparent 76%),
+        linear-gradient(145deg, #04152f, #062c65 55%, #031a3a);
+    transition: background 500ms ease;
+}
+
+.biodefense-screen.boss-mode .biodefense-header {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #42dfff80;
+}
+
+.biodefense-screen.boss-mode .biodefense-kicker {
+    color: #7fefff;
+}
+
+.biodefense-screen.boss-mode .biodefense-arena {
+    border-color: #1c99e6;
+    box-shadow: 0 0 0 1px #0e4b91, 0 0 36px #168cff38, 0 18px 48px #0008;
+}
+
+.biodefense-boss-hud {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.8fr) minmax(240px, 1.2fr);
+    align-items: center;
+    gap: 20px;
+    margin: 0 0 14px;
+    padding: 12px 16px;
+    border: 1px solid #34cfff;
+    background: linear-gradient(110deg, #05244c, #06152f 74%);
+    box-shadow: 0 0 22px #087ecb45, inset 0 0 20px #0d63a526;
+    color: #e7fbff;
+    font-family: 'Courier New', monospace;
+    animation: biodefense-boss-hud-enter 600ms ease-out both;
+}
+
+.biodefense-boss-hud[hidden] {
+    display: none;
+}
+
+.biodefense-boss-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.biodefense-boss-icon {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid #80f3ff;
+    border-radius: 50%;
+    background: radial-gradient(circle, #25c9ff 0, #0755b8 50%, #031e52 76%);
+    box-shadow: 0 0 18px #25c9ff9c;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.biodefense-boss-identity div,
+.biodefense-boss-health > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.biodefense-boss-identity div > span {
+    color: #78eaff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.biodefense-boss-identity strong {
+    color: #fff;
+    font-size: 16px;
+}
+
+.biodefense-boss-health > div:first-child {
+    flex-direction: row;
+    justify-content: space-between;
+    color: #a4dfff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.biodefense-boss-health > div:first-child strong {
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.biodefense-boss-health-track {
+    height: 13px;
+    margin-top: 7px;
+    padding: 2px;
+    border: 1px solid #3caee0;
+    background: #041126;
+}
+
+.biodefense-boss-health-track > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #14c9ff, #397bff);
+    box-shadow: 0 0 12px #22d7ff;
+    transition: width 180ms ease-out;
+}
+
+.biodefense-boss-hud.is-hit .biodefense-boss-icon {
+    animation: biodefense-boss-hit 160ms ease-in-out 2;
+}
+
+.biodefense-boss-phase-notice,
+.biodefense-boss-victory {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 24px);
+    padding: 14px 20px;
+    border: 1px solid #77edff;
+    background: #052856eb;
+    box-shadow: 0 0 28px #18baff9c;
+    color: #f0fcff;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(16px, 3vw, 26px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    animation: biodefense-phase-flash 900ms ease-out both;
+}
+
+.biodefense-boss-phase-notice[hidden],
+.biodefense-boss-victory[hidden] {
+    display: none;
+}
+
+.biodefense-boss-victory {
+    border-color: #b6ffff;
+    color: #fff;
+    text-shadow: 0 0 18px #45e8ff;
+    animation-duration: 1800ms;
+}
+
+.biodefense-boss-dialogue {
+    position: fixed;
+    z-index: 30;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: #020b19b8;
+    backdrop-filter: blur(4px);
+}
+
+.biodefense-boss-dialogue[hidden],
+.biodefense-boss-countdown[hidden] {
+    display: none;
+}
+
+.biodefense-boss-dialogue-card {
+    width: min(100%, 560px);
+    padding: 26px;
+    border: 1px solid #6beaff;
+    background: linear-gradient(145deg, #092b56, #04152e);
+    box-shadow: 0 0 34px #087de580, 7px 7px 0 #03102b;
+    color: #f1fbff;
+    font-family: 'Courier New', monospace;
+    animation: biodefense-boss-dialogue-enter 400ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+.biodefense-boss-dialogue-kicker {
+    margin: 0 0 12px;
+    color: #65e9ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.biodefense-boss-dialogue-card h2 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.biodefense-boss-dialogue-card > p:not(.biodefense-boss-dialogue-kicker) {
+    min-height: 48px;
+    margin: 0 0 20px;
+    color: #d6f1ff;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.biodefense-boss-continue {
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid #65e9ff;
+    background: #075291;
+    box-shadow: 0 0 14px #12baff50;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+}
+
+.biodefense-boss-continue:hover,
+.biodefense-boss-continue:focus-visible {
+    background: #0c72b8;
+    outline: 2px solid #d5fbff;
+    outline-offset: 3px;
+}
+
+.biodefense-boss-countdown {
+    position: absolute;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    visibility: hidden;
+    background: #02112ce8;
+    pointer-events: none;
+}
+
+.biodefense-boss-countdown.is-visible {
+    visibility: visible;
+}
+
+.biodefense-boss-countdown > span {
+    display: block;
+    min-width: 1.2em;
+    color: #e9fcff;
+    font-family: Arial, sans-serif;
+    font-size: clamp(120px, 30vw, 230px);
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    -webkit-text-stroke: 2px #8df5ff;
+    text-shadow: 0 0 14px #fff, 0 0 42px #26deff, 0 0 90px #147cff;
+    animation: biodefense-countdown-pop 950ms cubic-bezier(.16,.76,.25,1) both;
+}
+
+.biodefense-boss-countdown > span.is-go {
+    color: #fff;
+    font-size: clamp(82px, 19vw, 150px);
+    letter-spacing: 5px;
+    text-shadow: 0 0 14px #fff, 0 0 44px #28e6ff, 0 0 90px #2787ff;
+    animation-name: biodefense-go-pop;
+}
+
+.biodefense-memory-game {
+    position: absolute;
+    z-index: 35;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    background: #02112cd9;
+    color: #e9fcff;
+    font-family: 'Courier New', monospace;
+}
+
+.biodefense-memory-game[hidden] {
+    display: none;
+}
+
+.biodefense-memory-card {
+    width: min(100%, 430px);
+    padding: clamp(18px, 4vw, 30px);
+    border: 1px solid #44dfff;
+    background: linear-gradient(145deg, #082a53f5, #03152df5);
+    box-shadow: 0 0 32px #149dff70, inset 0 0 20px #10bdff12;
+    text-align: center;
+}
+
+.biodefense-memory-kicker {
+    margin: 0 0 10px;
+    color: #6deaff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.biodefense-memory-card h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: clamp(20px, 5vw, 28px);
+}
+
+.biodefense-memory-card > p:not(.biodefense-memory-kicker) {
+    margin: 8px 0;
+    color: #cbeeff;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.biodefense-memory-pads {
+    display: grid;
+    width: min(100%, 240px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 18px auto;
+}
+
+.biodefense-memory-pad {
+    aspect-ratio: 1;
+    border: 2px solid #ffffff80;
+    border-radius: 14px;
+    cursor: pointer;
+    opacity: 0.62;
+    transition: opacity 120ms ease, filter 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+.biodefense-memory-pad:nth-child(1) {
+    background: #0876ff;
+}
+
+.biodefense-memory-pad:nth-child(2) {
+    background: #0bd4e8;
+}
+
+.biodefense-memory-pad:nth-child(3) {
+    background: #a64cff;
+}
+
+.biodefense-memory-pad:nth-child(4) {
+    background: #3dda8a;
+}
+
+.biodefense-memory-pad:disabled {
+    cursor: default;
+}
+
+.biodefense-memory-pad.is-lit,
+.biodefense-memory-pad.is-pressed,
+.biodefense-memory-pad:focus-visible {
+    opacity: 1;
+    filter: brightness(1.65);
+    transform: scale(1.06);
+    box-shadow: 0 0 24px currentColor, 0 0 42px #fff8;
+}
+
+.biodefense-memory-pad:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.biodefense-memory-feedback {
+    min-height: 20px;
+    color: #7defff !important;
+    font-weight: 700;
+}
+
+@keyframes biodefense-boss-hud-enter {
+    from { opacity: 0; transform: translateY(-18px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes biodefense-boss-dialogue-enter {
+    from { opacity: 0; transform: translateY(24px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes biodefense-boss-hit {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+@keyframes biodefense-phase-flash {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.7); }
+    22%, 78% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes biodefense-countdown-pop {
+    0% { opacity: 1; transform: scale(1.45); filter: blur(0); }
+    18% { opacity: 1; transform: scale(1); }
+    78% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.3; transform: scale(.86); }
+}
+
+@keyframes biodefense-go-pop {
+    0% { opacity: 1; transform: scale(1.7); filter: blur(0); }
+    24% { opacity: 1; transform: scale(.96); }
+    60% { opacity: 1; transform: scale(1.08); }
+    100% { opacity: 0.35; transform: scale(.78); }
+}
+
+.biodefense-menu-error {
+    margin: 14px 0 0;
+    color: #ff9a8d;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.biodefense-header {
+    display: grid;
+    grid-template-columns: auto minmax(180px, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 16px;
+}
+
+.biodefense-header h1 {
+    margin: 2px 0 0;
+    color: #fff4f5;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.biodefense-kicker {
+    margin: 0;
+    color: #73e5f4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.biodefense-hud {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.biodefense-lives,
+.biodefense-score,
+.biodefense-wave {
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    gap: 3px;
+}
+
+.biodefense-lives > span:first-child,
+.biodefense-score > span,
+.biodefense-wave > span {
+    color: #b49b9f;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.biodefense-lives strong,
+.biodefense-score strong,
+.biodefense-wave strong {
+    color: #fff4f5;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+
+.biodefense-life-art {
+    position: relative;
+    display: block;
+    width: 106px;
+    height: 38px;
+    overflow: hidden;
+}
+
+.biodefense-life-art img {
+    position: absolute;
+    top: -76px;
+    left: 50%;
+    display: block;
+    width: 170px;
+    max-width: none;
+    height: 170px;
+    transform: translateX(-50%);
+    image-rendering: pixelated;
+}
+
+.biodefense-arena {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #663a48;
+    background: #180e18;
+    box-shadow: 0 0 0 1px #301c2c, 0 18px 48px #0008;
+}
+
+.biodefense-arena.boss-entry-transition {
+    animation: biodefense-boss-arena-shake 1500ms ease-in both;
+}
+
+.biodefense-boss-entry-flash {
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    animation: biodefense-boss-white-flash 1500ms ease-in both;
+}
+
+.biodefense-boss-entry-flash[hidden] {
+    display: none;
+}
+
+@keyframes biodefense-boss-arena-shake {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    12% { transform: translate(-5px, 3px) scale(1.005); }
+    24% { transform: translate(6px, -4px) scale(1.008); }
+    36% { transform: translate(-8px, -3px) scale(1.01); }
+    48% { transform: translate(7px, 5px) scale(1.012); }
+    60% { transform: translate(-5px, 3px) scale(1.008); }
+    72% { transform: translate(4px, -3px) scale(1.005); }
+    84% { transform: translate(-2px, 1px) scale(1.002); }
+}
+
+@keyframes biodefense-boss-white-flash {
+    0% { opacity: 0; }
+    18% { opacity: 0.18; }
+    38% { opacity: 0.72; }
+    50% { opacity: 0.96; }
+    60% { opacity: 0.82; }
+    78% { opacity: 0.34; }
+    100% { opacity: 0; }
+}
+
+#biodefense-canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    outline: none;
+    cursor: crosshair;
+    image-rendering: pixelated;
+    touch-action: manipulation;
+}
+
+#biodefense-canvas:focus-visible {
+    outline: 2px solid #7df2d2;
+    outline-offset: -3px;
+}
+
+.biodefense-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    z-index: 2;
+    background: #100911d9;
+    backdrop-filter: blur(3px);
+}
+
+.biodefense-overlay[hidden] {
+    display: none;
+}
+
+.biodefense-game-over-card {
+    width: min(100%, 380px);
+    padding: 30px 24px;
+    border: 1px solid #75495b;
+    background: linear-gradient(145deg, #281622, #160f19);
+    text-align: center;
+    box-shadow: 6px 6px 0 #020909;
+}
+
+.biodefense-intro-card {
+    width: min(100%, 560px);
+    max-height: 100%;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.biodefense-intro-card > p,
+.biodefense-intro-card > h2,
+.biodefense-intro-card > span {
+    text-align: center;
+}
+
+.biodefense-biology {
+    margin: 18px 0;
+    padding: 14px 0;
+    border-top: 1px solid #75495b;
+    border-bottom: 1px solid #75495b;
+}
+
+.biodefense-biology h3 {
+    margin: 0 0 9px;
+    color: #73e5f4;
+    font-size: 15px;
+}
+
+.biodefense-biology p {
+    margin: 8px 0;
+    color: #e2d2d6;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.biodefense-biology .biodefense-biology-note {
+    color: #bba7ad;
+    font-size: 12px;
+}
+
+.biodefense-intro-card #biodefense-start {
+    display: block;
+    margin: 0 auto;
+}
+
+.biodefense-game-over-card > p {
+    margin: 0 0 8px;
+    color: #ff9a9c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.biodefense-game-over-card h2 {
+    margin: 0;
+    color: #fff4f5;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.biodefense-game-over-card > span {
+    display: block;
+    margin: 10px 0 22px;
+    color: #d3bfc5;
+    font-size: 14px;
+}
+
+.biodefense-restart {
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid #75e4ef;
+    background: #12353b;
+    color: #eafcff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.biodefense-restart:hover {
+    background: #194a52;
+    box-shadow: 0 0 20px #58dbe433;
+}
+
+.biodefense-restart:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.biodefense-status,
+.biodefense-controls-hint {
+    margin: 12px 0 0;
+    color: #d0bdc4;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.biodefense-controls-hint {
+    margin-top: 5px;
+    color: #a18b95;
+    font-size: 12px;
+}
+
+.biodefense-touch-controls,
+.biodefense-touch-hint {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .biodefense-boss-hud {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        margin-bottom: 10px;
+        padding: 10px 12px;
+    }
+
+    .biodefense-boss-identity {
+        gap: 8px;
+    }
+
+    .biodefense-boss-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+    }
+
+    .biodefense-boss-identity strong {
+        font-size: 14px;
+    }
+
+    .biodefense-boss-dialogue-card {
+        padding: 20px 16px;
+    }
+
+    .biodefense-boss-dialogue-card > p:not(.biodefense-boss-dialogue-kicker) {
+        font-size: 13px;
+    }
+
+    .biodefense-header {
+        grid-template-columns: auto 1fr;
+        gap: 14px 18px;
+        margin-bottom: 14px;
+    }
+
+    .biodefense-header h1 {
+        font-size: 26px;
+    }
+
+    #biodefense-canvas {
+        height: min(58vh, 440px);
+        min-height: 270px;
+        aspect-ratio: auto;
+    }
+
+    .biodefense-hud {
+        grid-column: 1 / -1;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .biodefense-life-art {
+        width: 94px;
+    }
+
+    .biodefense-score > span,
+    .biodefense-wave > span,
+    .biodefense-lives > span:first-child {
+        font-size: 9px;
+        letter-spacing: 0.6px;
+    }
+
+    .biodefense-controls-hint {
+        display: none;
+    }
+
+    .biodefense-touch-controls {
+        display: flex;
+        min-height: 68px;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(18px, 8vw, 42px);
+        margin-top: 12px;
+        color: #c9e8ed;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+    }
+
+    .biodefense-touch-move {
+        display: grid;
+        width: 76px;
+        height: 62px;
+        place-items: center;
+        border: 1px solid #6beaff;
+        border-radius: 12px;
+        background: linear-gradient(145deg, #0b4271, #062442);
+        box-shadow: 0 4px 0 #031629, 0 0 16px #12baff36;
+        color: #fff;
+        font-size: 24px;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .biodefense-touch-move.is-pressed,
+    .biodefense-touch-move:active {
+        transform: translateY(3px);
+        background: #0c72b8;
+        box-shadow: 0 1px 0 #031629, 0 0 22px #12baff85;
+    }
+
+    .biodefense-touch-move:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+    }
+
+    .biodefense-touch-hint {
+        display: block;
+        margin: 3px 0 0;
+        color: #a9c5cc;
+        font-size: 11px;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .biodefense-intro-card {
+        padding: 20px 16px;
+    }
+
+    .biodefense-biology {
+        margin: 12px 0;
+        padding: 10px 0;
+    }
+
+    .biodefense-biology p {
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .biodefense-restart,
+    .biodefense-boss-continue {
+        transition: none;
+    }
+
+    .biodefense-memory-pad {
+        transition: none;
+    }
+
+    .biodefense-boss-hud,
+    .biodefense-boss-dialogue-card,
+    .biodefense-boss-phase-notice,
+    .biodefense-boss-victory,
+    .biodefense-boss-countdown > span {
+        animation-duration: 1ms !important;
+    }
+
+    .biodefense-arena.boss-entry-transition {
+        animation: none;
+    }
+
+    .biodefense-boss-entry-flash {
+        animation-duration: 1ms;
+        opacity: 1;
+    }
+
+    .biodefense-boss-countdown > span {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .biodefense-memory-game {
+        padding: 6px;
+        overflow-y: auto;
+    }
+
+    .biodefense-memory-card {
+        padding: 10px;
+    }
+
+    .biodefense-memory-kicker {
+        margin-bottom: 5px;
+        font-size: 9px;
+    }
+
+    .biodefense-memory-card h2 {
+        margin-bottom: 4px;
+        font-size: 19px;
+    }
+
+    .biodefense-memory-card > p:not(.biodefense-memory-kicker) {
+        margin: 4px 0;
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .biodefense-memory-pads {
+        width: min(100%, 104px);
+        gap: 7px;
+        margin: 8px auto;
+    }
+}
+

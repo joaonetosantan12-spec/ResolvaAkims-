@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveAkiMS+/Descubra</title>
+    <link rel="stylesheet" href="style2.css">
+      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-responsive.css">
+      <link rel="stylesheet" href="canais-youtube.css">
+    
+</head>
+<body class = "body">
+    <div id="loadingScreen">
+        <div class="loader">
+            <div class="three-body">
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+                <div class="three-body__dot"></div>
+            </div>
+        </div>
+    </div>
+      <nav class="barra-topo">
+        <img src="Images/Logo.png" alt="Logotipo" class="logo-topo" >
+<button id="inicio">Início</button>
+
+<button id="sobre">Sobre</button>
+
+<button id ="ButtoGames">Jogos</button>
+
+<button id="descubra">Descubra</button>      
+
+
+    </nav>
+
+ <script>
+        const botaoSobre = document.getElementById("sobre");
+
+    botaoSobre.addEventListener("click", function(){
+        window.location.href = "Sobre.html"
+    });
+
+                const botaoJogos = document.getElementById("ButtoGames");
+
+    botaoJogos.addEventListener("click", function(){
+        window.location.href = "Games.html"
+    });
+
+      const botaoInicio = document.getElementById("inicio");
+
+    botaoInicio.addEventListener("click", function(){
+        window.location.href = "index.html"
+ });
+
+     const botaoDescubra = document.getElementById("descubra");
+
+    botaoDescubra.addEventListener("click", function(){
+        window.location.href = "Descubra.html"
+    })
+ </script>
+
+    <main class="conteudo-principal canais-main">
+        <div class="canais-pagina">
+            <header class="canais-intro">
+                <h1>Aprenda com o YouTube</h1>
+                <p>Uma seleção de canais educativos para apoiar seus estudos. Confira a descrição de cada canal e escolha os assuntos que combinam com o que você está aprendendo.</p>
+            </header>
+
+            <section class="canais-categoria" aria-labelledby="canais-bem-estar">
+                <h2 id="canais-bem-estar">🧠 Autoconfiança, foco e inteligência emocional</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🧠</span><div><h3>Minutos Psíquicos</h3></div></div>
+                        <p>Aprenda psicologia e neurociência de forma acessível, com explicações sobre mente e comportamento.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> psicologia, neurociência e comportamento.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@minutospsiquicos" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🌱</span><div><h3>Psicóloga Sandra Bueno</h3><p class="canal-responsavel">Responsável: Sandra Bueno</p></div></div>
+                        <p>Conteúdos de uma psicóloga com foco em autovalor e em encontrar sentido mesmo diante de dificuldades.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> autoconhecimento, autoestima e bem-estar emocional.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@psicologasandrabueno" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">💬</span><div><h3>Psicologia na Prática</h3><p class="canal-responsavel">Psicóloga: Alana Anijar</p></div></div>
+                        <p>Explicações de psicologia feitas por uma profissional especialista em Terapia Cognitivo-Comportamental.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> psicologia, pensamentos, emoções e estratégias da TCC.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@AlanaAnijar" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="canais-categoria" aria-labelledby="canais-matematica">
+                <h2 id="canais-matematica">➗ Matemática</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">📐</span><div><h3>Professor Ferretto</h3></div></div>
+                        <p>Aulas de matemática desde os fundamentos até conteúdos avançados, com explicações e resolução de exercícios.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> fundamentos, conteúdos de Ensino Médio e exercícios.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@professorferretto" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">📊</span><div><h3>Matemática Rio</h3><p class="canal-responsavel">Professor: Rafael Procopio</p></div></div>
+                        <p>Matemática apresentada de maneira visual e didática, com exemplos e aplicações práticas.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conceitos matemáticos, exemplos e aplicações.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@matematicario" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🧮</span><div><h3>Equaciona</h3><p class="canal-responsavel">Professor: Paulo Pereira</p></div></div>
+                        <p>Aulas e resolução de exercícios com Paulo Pereira, mestre em Matemática pelo IMPA.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conteúdos matemáticos, resolução de questões e preparação para provas.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@equacionamatematica" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="canais-categoria" aria-labelledby="canais-fisica">
+                <h2 id="canais-fisica">⚛️ Física</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🚀</span><div><h3>Professor Boaro</h3></div></div>
+                        <p>Aulas de Física com conteúdos de diferentes áreas e resolução de exercícios.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> Mecânica, Óptica e Eletrodinâmica.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@professorboaro" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🔭</span><div><h3>Física Total</h3><p class="canal-responsavel">Professor: Ivys Urquiza</p></div></div>
+                        <p>Aulas organizadas por assuntos, com explicações teóricas e preparação para avaliações e vestibulares.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conteúdos de Física e preparação para provas.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@FisicaTotal" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🧲</span><div><h3>Física Fábris</h3></div></div>
+                        <p>Explicações dinâmicas de conceitos físicos, fórmulas e exercícios.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conceitos, fórmulas e prática de exercícios.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@fabrisfisica" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="canais-categoria" aria-labelledby="canais-quimica">
+                <h2 id="canais-quimica">🧪 Química</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">⚗️</span><div><h3>Química com Prof. Paulo Valim</h3><p class="canal-responsavel">Professor: Paulo Valim</p></div></div>
+                        <p>Aulas de Química Geral, Físico-Química e Química Orgânica, com foco também em ENEM e vestibulares.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> Química Geral, Físico-Química e Química Orgânica.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@paulovalim" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">⚗️</span><div><h3>Química Simples</h3></div></div>
+                        <p>Explicações didáticas sobre conceitos, fórmulas e conteúdos de Química.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conceitos e fórmulas de Química.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@QuimicaSimples" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🧪</span><div><h3>Química com Você</h3><p class="canal-responsavel">Professor: Anderson Lisboa</p></div></div>
+                        <p>Aulas de Química com o professor Anderson Lisboa.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conceitos de Química e resolução de exercícios.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@professorandersonlisboa-qu6513" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="canais-categoria" aria-labelledby="canais-portugues">
+                <h2 id="canais-portugues">📚 Português, literatura e redação</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">✍️</span><div><h3>Professor Noslen</h3></div></div>
+                        <p>Conteúdos de gramática, interpretação de textos, literatura e redação.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> Língua Portuguesa, leitura e produção textual.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@professornoslen" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">📝</span><div><h3>Débora Aladim</h3></div></div>
+                        <p>Vídeos sobre História, técnicas de estudo, preparação para provas e dicas de redação.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> História, estudo, avaliações e redação.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@deboraaladim" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🏛️</span><div><h3>Se Liga Nessa História</h3><p class="canal-responsavel">Professor: Walter Solla</p></div></div>
+                        <p>Videoaulas de História apresentadas pelo professor Walter Solla, formado pela USP.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> História, contextos históricos e repertório para redação.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@seliganessahistoriaa" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="canais-categoria" aria-labelledby="canais-biologia">
+                <h2 id="canais-biologia">🧬 Biologia</h2>
+                <div class="canais-grade">
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🔬</span><div><h3>Biologia Total</h3><p class="canal-responsavel">Professor: Paulo Jubilut</p></div></div>
+                        <p>Aulas de Biologia com explicações, animações e exemplos relacionados ao cotidiano.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> conteúdos de Biologia e aplicações no dia a dia.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@jubilut" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                    <article class="canal-card">
+                        <div class="canal-cabecalho"><span class="canal-icone" aria-hidden="true">🧬</span><div><h3>Kennedy Ramos</h3><p class="canal-responsavel">Professor: Kennedy Ramos</p></div></div>
+                        <p>Canal de Biologia com preparação para ENEM, vestibulares e reforço escolar.</p>
+                        <p class="canal-assuntos"><strong>Assuntos:</strong> Biologia, revisão para provas e reforço escolar.</p>
+                        <a class="canal-visitar" href="https://www.youtube.com/@bioexplica" target="_blank" rel="noopener noreferrer">Visitar canal</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+     <footer class="rodape-site">
+        <p>© 2026 Todos os direitos reservados.</p>
+        <p>Desenvolvido por:|  João Neto |  Kamylla | Lidis |  Victor H |  Gabrielly | José Augusto | </p>
+    </footer> 
+
+
+
+<script>
+window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loadingScreen");
+
+    setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+
+        setTimeout(() => {
+            loadingScreen.remove();
+        }, 500);
+
+    }, 3000);
+});
+</script>
+
+  <script src="script.js"></script>
+  <script src="site-navigation.js"></script>
+</body>
+</html>

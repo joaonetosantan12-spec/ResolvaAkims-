@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveAkiMS+/inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-responsive.css">
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <div id="tela-loading-master">
+        <div class="fundo-grade"></div>
+        <div class="ponto-luz-imagem"></div>
+        
+        <div class="palco-intro">
+            <div class="pilar pilar-esquerdo"></div>
+            <div class="pilar pilar-direito"></div>
+        </div>
+        
+        <div class="palco-imagem">
+            <img src="Images/Logo.png" alt="Carregando">
+            
+            <div class="carregamento-pontos">
+                <div class="ponto-branco"></div>
+                <div class="ponto-branco"></div>
+                <div class="ponto-branco"></div>
+            </div>
+        </div>
+    </div>
+    <nav class="barra-topo" aria-label="Navegação principal">
+        <img src="Images/Logo.png" alt="ResolveAkiMS+" class="logo-topo">
+        <button id="inicio" type="button">Início</button>
+        <button id="sobre" type="button">Sobre</button>
+        <button id="ButtoGames" type="button">Jogos</button>
+        <button id="descubra" type="button">Descubra</button>
+    </nav>
+
+    <main class="inicio-main">
+        <section class="inicio-hero" aria-labelledby="inicio-titulo">
+            <div class="inicio-apresentacao">
+                <p class="inicio-etiqueta">RESOLVEAKIMS+</p>
+                <h1 id="inicio-titulo">Aprender também pode ser uma aventura.</h1>
+                <p class="inicio-resumo">Explore jogos e conteúdos feitos para acompanhar sua jornada de estudos.</p>
+                <div class="inicio-acoes">
+                    <a class="inicio-acao inicio-acao-principal" href="Games.html">Conheça os jogos <span aria-hidden="true">→</span></a>
+                    <a class="inicio-acao inicio-acao-secundaria" href="Descubra.html">Aprenda com o YouTube</a>
+                </div>
+            </div>
+
+            <aside class="inicio-comecar" aria-label="Como começar">
+                <p class="inicio-comecar-etiqueta">POR ONDE COMEÇAR</p>
+                <a class="inicio-destaque-jogo" href="Games.html">
+                    <span class="inicio-numero" aria-hidden="true">01</span>
+                    <span><strong>Jogos</strong><small>Tabuada com a cobrinha ou defesa no BioDefense.</small></span>
+                    <span class="inicio-seta" aria-hidden="true">↗</span>
+                </a>
+                <a class="inicio-destaque-jogo" href="Descubra.html">
+                    <span class="inicio-numero" aria-hidden="true">02</span>
+                    <span><strong>Descubra</strong><small>Dicas de estudo e canais educativos.</small></span>
+                    <span class="inicio-seta" aria-hidden="true">↗</span>
+                </a>
+                <p class="inicio-instrucao">Escolha uma opção no menu ou comece por aqui.</p>
+            </aside>
+            <span class="inicio-detalhe inicio-detalhe-um" aria-hidden="true"></span>
+            <span class="inicio-detalhe inicio-detalhe-dois" aria-hidden="true"></span>
+        </section>
+    </main>
+
+<script>
+        const botaoSobre = document.getElementById("sobre");
+
+    botaoSobre.addEventListener("click", function(){
+        window.location.href = "Sobre.html"
+    });
+
+            const botaoJogos = document.getElementById("ButtoGames");
+
+    botaoJogos.addEventListener("click", function(){
+        window.location.href = "Games.html"
+    });
+
+      const botaoInicio = document.getElementById("inicio");
+
+    botaoInicio.addEventListener("click", function(){
+        window.location.href = "index.html"
+ });
+
+     const botaoDescubra = document.getElementById("descubra");
+
+    botaoDescubra.addEventListener("click", function(){
+        window.location.href = "Descubra.html"
+    })
+</script>
+
+
+    <footer class="rodape-site">
+        <p>©2026 Todos os direitos reservados.</p>
+        <p>Desenvolvido por:|  João Neto |  Kamylla | Lidis |  Victor H |  Gabrielly | José Augusto | </p>
+    </footer> 
+
+
+
+
+    <script src="script.js"></script>
+    <script src="site-navigation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="Gamestyle.css">
+    <link rel="stylesheet" href="BioDefense.css">
+    <title>Jogos</title>
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-menu" id="game-menu" aria-labelledby="menu-title">
+        <header class="menu-heading">
+          <h1 id="menu-title">Jogos</h1>
+          <p>Escolha um jogo para começar.</p>
+        </header>
+
+        <div class="game-list">
+          <button class="game-choice" id="play-snake" type="button">
+            <span class="game-number" aria-hidden="true">01</span>
+            <span class="game-choice-copy">
+              <span class="game-choice-title">Cobrinha da tabuada</span>
+              <span class="game-choice-description">Uma conta, três números. Encontre a resposta certa.</span>
+            </span>
+            <span class="game-choice-action">Jogar <span aria-hidden="true">→</span></span>
+          </button>
+
+        <button class="game-choice" id="play-biodefense" type="button">
+            <span class="game-number" aria-hidden="true">02</span>
+            <span class="game-choice-copy">
+              <span class="game-choice-title">BioDefense</span>
+              <span class="game-choice-description">Proteja os glóbulos e elimine as bactérias invasoras.</span>
+            </span>
+            <span class="game-choice-action">Jogar <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+        <p class="biodefense-menu-error" id="biodefense-menu-error" role="status" hidden></p>
+      </section>
+
+      <section class="tutorial-screen" id="tutorial-screen" hidden aria-labelledby="tutorial-title">
+        <button class="back-link" id="tutorial-back" type="button">← Jogos</button>
+        <header class="tutorial-heading">
+          <p class="tutorial-kicker">GUIA DE JOGO <span>01</span></p>
+          <h1 id="tutorial-title">Cobrinha da tabuada</h1>
+          <p>Leia a conta, encontre o resultado e leve a minhoquinha até ele.</p>
+        </header>
+
+        <ol class="tutorial-steps">
+          <li class="tutorial-step">
+            <span class="tutorial-step-number">01</span>
+            <div>
+              <h2>Mova a minhoquinha</h2>
+              <p>No computador, use as setas ou WASD. No celular, toque nas setas ou deslize no tabuleiro.</p>
+            </div>
+          </li>
+          <li class="tutorial-step">
+            <span class="tutorial-step-number">02</span>
+            <div>
+              <h2>Encontre a resposta</h2>
+              <p>Guie a cabeça até o quadrado com o produto certo antes que o tempo acabe. Evite as outras respostas, as paredes e o próprio corpo.</p>
+            </div>
+          </li>
+          <li class="tutorial-step">
+            <span class="tutorial-step-number">03</span>
+            <div>
+              <h2>Prepare-se para o chefe</h2>
+              <p>No computador, as contas fáceis dão 10 segundos e as mais difíceis, 16. No celular, o movimento é mais lento e você ganha 6 segundos extras por conta. Na luta, você tem três vidas.</p>
+            </div>
+          </li>
+        </ol>
+
+        <section class="tutorial-whats-new" aria-labelledby="whats-new-title">
+          <header class="whats-new-heading">
+            <h2 id="whats-new-title">O que tem de novo</h2>
+            <span>ATUALIZAÇÃO(26/10)</span>
+          </header>
+          <ul class="whats-new-list">
+            <li><span class="whats-new-mark" aria-hidden="true">+</span><span>Modo relaxado automático no celular: movimento mais lento e 6 segundos extras para responder.</span></li>
+            <li><span class="whats-new-mark" aria-hidden="true">+</span><span>Ajuste no sistema de curvas da cobrinha.</span></li>
+            <li><span class="whats-new-mark" aria-hidden="true">+</span><span>Agora há sons durante o jogo.</span></li>
+            
+          </ul>
+        </section>
+
+        <footer class="tutorial-actions">
+          <button class="tutorial-start" id="tutorial-start" type="button">Começar partida <span aria-hidden="true">→</span></button>
+        </footer>
+      </section>
+
+      <section class="game-screen" id="game-screen" hidden>
+        <header class="game-header">
+          <button class="back-link" id="back-to-games" type="button">← Jogos</button>
+          <h1>Cobrinha da tabuada</h1>
+        </header>
+
+        <section class="game-panel" aria-label="Jogo da cobrinha com tabuada">
+          <div class="question-row">
+            <div>
+              <p class="question-label">Sua conta</p>
+              <p class="question" id="question" aria-live="polite">3 × 4 = ?</p>
+              <p class="question-timer" id="question-timer" role="timer" aria-label="Tempo para responder">15 s</p>
+            </div>
+            <div class="score-box">
+              <p class="question-label">Pontos</p>
+              <p class="score" id="score" aria-live="polite">0</p>
+            </div>
+          </div>
+
+          <div class="board-wrap">
+            <canvas id="game-board" width="600" height="600" aria-label="Tabuleiro do jogo da cobrinha"></canvas>
+            <div class="game-message" id="game-message" hidden>
+              <p id="message-title">Fim de jogo</p>
+              <span id="message-detail">Tente novamente!</span>
+            </div>
+          </div>
+
+          <div class="game-footer">
+            <span class="best-score">Recorde <strong id="best-score">0</strong></span>
+            <button class="restart-button" id="restart-button" type="button">Jogar de novo</button>
+          </div>
+
+          <div class="touch-controls" aria-label="Controles direcionais">
+            <button type="button" data-direction="up" aria-label="Mover para cima">↑</button>
+            <div class="touch-controls-row">
+              <button type="button" data-direction="left" aria-label="Mover para a esquerda">←</button>
+              <button type="button" data-direction="down" aria-label="Mover para baixo">↓</button>
+              <button type="button" data-direction="right" aria-label="Mover para a direita">→</button>
+            </div>
+          </div>
+          <p class="keyboard-hint">Escolha uma direção para começar e encontre a resposta certa. No celular, toque nas setas.</p>
+        </section>
+      </section>
+
+      <section class="biodefense-screen" id="biodefense-screen" hidden aria-labelledby="biodefense-title">
+        <header class="biodefense-header">
+          <button class="back-link" id="biodefense-back" type="button">← Jogos</button>
+          <div>
+            <p class="biodefense-kicker">DEFESA DO ORGANISMO</p>
+            <h1 id="biodefense-title">BioDefense</h1>
+          </div>
+          <div class="biodefense-hud">
+            <div class="biodefense-lives" aria-label="Vidas restantes">
+              <span>VIDAS</span>
+              <span class="biodefense-life-art"><img id="biodefense-life-image" src="Images/Coracao33.png" alt="3 vidas"></span>
+              <strong id="biodefense-life-count" aria-live="polite">3 / 3</strong>
+            </div>
+            <div class="biodefense-score">
+              <span>PONTUAÇÃO</span>
+              <strong id="biodefense-score" aria-live="polite">0</strong>
+            </div>
+            <div class="biodefense-wave">
+              <span>ONDA</span>
+              <strong id="biodefense-wave" aria-live="polite">01</strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="biodefense-boss-hud" id="biodefense-boss-hud" hidden aria-label="Bactéria Alfa">
+          <div class="biodefense-boss-identity">
+            <span class="biodefense-boss-icon" aria-hidden="true">α</span>
+            <div>
+              <span>AMEAÇA CRÍTICA</span>
+              <strong>Bactéria Alfa</strong>
+            </div>
+          </div>
+          <div class="biodefense-boss-health">
+            <div><span id="biodefense-boss-phase">FASE 1 / 3</span><strong id="biodefense-boss-health-label">24 / 24</strong></div>
+            <div class="biodefense-boss-health-track" role="meter" aria-label="Resistência da Bactéria Alfa" aria-valuemin="0" aria-valuemax="24" aria-valuenow="24">
+              <span id="biodefense-boss-health-fill"></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="biodefense-arena">
+          <canvas id="biodefense-canvas" width="960" height="600" tabindex="0" aria-label="Arena BioDefense. Clique para atirar nas bactérias. Use as setas ou A e D para mover o UFO."></canvas>
+          <div class="biodefense-boss-entry-flash" id="biodefense-boss-entry-flash" hidden aria-hidden="true"></div>
+          <div class="biodefense-boss-phase-notice" id="biodefense-boss-phase-notice" hidden aria-live="assertive"></div>
+          <div class="biodefense-boss-victory" id="biodefense-boss-victory" hidden>AMEAÇA NEUTRALIZADA</div>
+          <div class="biodefense-boss-countdown" id="biodefense-boss-countdown" hidden aria-live="assertive" aria-atomic="true">
+            <span id="biodefense-boss-countdown-number"></span>
+          </div>
+          <section class="biodefense-memory-game" id="biodefense-memory-game" hidden aria-labelledby="biodefense-memory-title">
+            <div class="biodefense-memory-card">
+              <p class="biodefense-memory-kicker">DESAFIO DE MEMÓRIA · FASE <span id="biodefense-memory-phase">2</span></p>
+              <h2 id="biodefense-memory-title">Decore a sequência</h2>
+              <p id="biodefense-memory-instruction" aria-live="polite">Observe as luzes e repita a sequência para desativar o escudo.</p>
+              <div class="biodefense-memory-pads" aria-label="Sequência de memória">
+                <button class="biodefense-memory-pad" type="button" data-memory-pad="0" aria-label="Luz azul"></button>
+                <button class="biodefense-memory-pad" type="button" data-memory-pad="1" aria-label="Luz ciano"></button>
+                <button class="biodefense-memory-pad" type="button" data-memory-pad="2" aria-label="Luz roxa"></button>
+                <button class="biodefense-memory-pad" type="button" data-memory-pad="3" aria-label="Luz verde"></button>
+              </div>
+              <p class="biodefense-memory-feedback" id="biodefense-memory-feedback" aria-live="polite">Prepare-se...</p>
+            </div>
+          </section>
+          <div class="biodefense-overlay" id="biodefense-start-screen">
+            <div class="biodefense-game-over-card biodefense-intro-card">
+              <p>PROTOCOLO DE DEFESA</p>
+              <h2>BioDefense</h2>
+              <span>Proteja as células saudáveis. Destrua as bactérias antes que escapem ou se multipliquem.</span>
+              <section class="biodefense-biology" aria-labelledby="biodefense-biology-title">
+                <h3 id="biodefense-biology-title">Entenda a biologia</h3>
+                <p>O sangue transporta oxigênio e nutrientes. As hemácias (glóbulos vermelhos) levam oxigênio aos tecidos; elas não são células de defesa.</p>
+                <p>Algumas bactérias podem causar doenças e se multiplicar. No organismo real, células do sistema imune — como os glóbulos brancos — reconhecem e combatem microrganismos; hemácias não se transformam em bactérias.</p>
+                <p class="biodefense-biology-note">No jogo, a infecção de hemácias é uma simplificação fictícia para representar a propagação de uma infecção. Proteja-as e elimine as bactérias invasoras.</p>
+              </section>
+              <button class="biodefense-restart" id="biodefense-start" type="button">Iniciar defesa</button>
+            </div>
+          </div>
+          <div class="biodefense-overlay" id="biodefense-game-over" hidden>
+            <div class="biodefense-game-over-card">
+              <p>DEFESA COMPROMETIDA</p>
+              <h2>Game Over</h2>
+              <span id="biodefense-final-score">Pontuação: 0</span>
+              <button class="biodefense-restart" id="biodefense-restart" type="button">Tentar novamente</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="biodefense-touch-controls" role="group" aria-label="Controles para mover o UFO">
+          <button type="button" class="biodefense-touch-move" data-biodefense-move="left" aria-label="Mover UFO para a esquerda">◀</button>
+          <span>MOVER UFO</span>
+          <button type="button" class="biodefense-touch-move" data-biodefense-move="right" aria-label="Mover UFO para a direita">▶</button>
+        </div>
+        <p class="biodefense-touch-hint">Segure as setas para mover o UFO. Toque na arena para mirar e disparar.</p>
+
+        <div class="biodefense-boss-dialogue" id="biodefense-boss-dialogue" hidden>
+          <section class="biodefense-boss-dialogue-card" role="dialog" aria-modal="true" aria-labelledby="biodefense-boss-speaker">
+            <p class="biodefense-boss-dialogue-kicker">COMUNICAÇÃO DE EMERGÊNCIA</p>
+            <h2 id="biodefense-boss-speaker"></h2>
+            <p id="biodefense-boss-dialogue-line" aria-live="polite"></p>
+            <button class="biodefense-boss-continue" id="biodefense-boss-continue" type="button">Continuar</button>
+          </section>
+        </div>
+
+        <p class="biodefense-status" id="biodefense-status" role="status">Clique ou toque para disparar. Use as setas ou A/D para mover o UFO.</p>
+        <p class="biodefense-controls-hint">Mouse/toque: mirar e disparar · Setas ou A/D: mover o UFO · Espaço: disparar para o cursor</p>
+      </section>
+
+      <aside class="boss-hud" id="boss-hud" hidden aria-label="Chefe da fase">
+        <div class="boss-hud-portrait">
+          <img src="Images/Logo.png" alt="">
+          <span>RESOLVE<br>AKI MS</span>
+        </div>
+        <div class="boss-hud-info">
+          <div class="boss-health-heading">
+            <span>VIDA</span>
+            <strong id="boss-health-label">08 / 08</strong>
+          </div>
+          <div class="boss-health-track" role="meter" aria-label="Vida do chefe" aria-valuemin="0" aria-valuemax="8" aria-valuenow="8">
+            <span class="boss-health-fill" id="boss-health-fill"></span>
+          </div>
+          <div class="worm-lives" id="worm-lives" role="meter" aria-label="Vidas da minhoquinha" aria-valuemin="0" aria-valuemax="3" aria-valuenow="3">
+            <span class="worm-lives-label">MINHOQUINHA</span>
+            <strong id="worm-lives-count">3 / 3</strong>
+            <div class="worm-life-pips" aria-hidden="true">
+              <span class="worm-life-pip"></span>
+              <span class="worm-life-pip"></span>
+              <span class="worm-life-pip"></span>
+            </div>
+          </div>
+          <p class="boss-reaction" id="boss-reaction" aria-live="polite">SOU IMPARÁVEL.</p>
+        </div>
+      </aside>
+
+      <div class="boss-dialogue" id="boss-dialogue" hidden>
+        <section class="boss-dialogue-panel" role="dialog" aria-modal="true" aria-labelledby="boss-speaker">
+          <div class="boss-dialogue-avatar">
+            <div class="boss-worm-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img class="boss-dialogue-boss-logo" src="Images/Logo.png" alt="">
+          </div>
+          <div class="boss-dialogue-copy">
+            <p class="boss-speaker" id="boss-speaker">MINHOQUINHA</p>
+            <p class="boss-dialogue-line" id="boss-dialogue-line"></p>
+          </div>
+          <button class="boss-continue" id="boss-continue" type="button">CONTINUAR ›</button>
+        </section>
+      </div>
+
+      <div class="boss-countdown" id="boss-countdown" hidden aria-live="assertive" aria-atomic="true">
+        <span class="boss-countdown-word" id="boss-countdown-word"></span>
+      </div>
+    </main>
+    <script src="ScriptGame.js"></script>
+    <script src="BioDefense.js"></script>
+  </body>
+</html>

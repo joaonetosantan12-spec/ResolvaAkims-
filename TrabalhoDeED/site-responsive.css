@@ -1,0 +1,196 @@
+html {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.conteudo-principal {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.barra-topo {
+    width: 100%;
+    max-width: 100%;
+}
+
+.barra-topo > button,
+.barra-topo > .descubra-dropdown > button {
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.descubra-dropdown {
+    position: relative;
+    z-index: 200;
+    flex: 0 0 auto;
+}
+
+.descubra-menu {
+    position: absolute;
+    z-index: 200;
+    top: 100%;
+    right: 0;
+    width: min(280px, calc(100vw - 24px));
+    max-height: min(70vh, 480px);
+    overflow-y: auto;
+    padding: 8px;
+    border: 2px solid #6427ce;
+    border-radius: 12px;
+    background: #e9ddff;
+    box-shadow: 0 12px 28px #210c3c55;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.descubra-menu[hidden] {
+    display: none;
+}
+
+.descubra-menu a {
+    display: block;
+    min-height: 44px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    color: #302544;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: background-color 140ms ease, color 140ms ease, padding-left 140ms ease;
+}
+
+.descubra-menu a:hover,
+.descubra-menu a:focus-visible {
+    padding-left: 18px;
+    outline: none;
+    background: #c7a6ff;
+    color: #28025a;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .barra-topo {
+        height: auto;
+        min-height: 90px;
+        padding: 6px 14px;
+        gap: 4px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .barra-topo > .logo-topo {
+        height: 82px;
+        max-width: 100%;
+        margin-right: auto;
+        object-fit: contain;
+    }
+
+    .barra-topo > button,
+    .barra-topo > .descubra-dropdown > button {
+        min-height: 44px;
+        margin: 4px;
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    .descubra-menu {
+        right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        min-width: 0;
+    }
+
+    .barra-topo {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
+        padding: 6px 8px 8px;
+    }
+
+    .barra-topo > .logo-topo {
+        grid-column: 1 / -1;
+        width: 150px;
+        height: 50px;
+        margin: 0 auto;
+        object-fit: cover;
+        object-position: center 50%;
+    }
+
+    .barra-topo > button,
+    .barra-topo > .descubra-dropdown > button {
+        width: 100%;
+        min-width: 0;
+        min-height: 46px;
+        margin: 0;
+        padding: 8px 2px;
+        font-size: clamp(12px, 3.5vw, 15px);
+        letter-spacing: 0;
+    }
+
+    .barra-topo > .descubra-dropdown {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .descubra-menu {
+        position: fixed;
+        top: 132px;
+        right: 8px;
+        width: min(300px, calc(100vw - 16px));
+        max-height: calc(100vh - 148px);
+    }
+
+    .conteudo-principal {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .dicas-main {
+        padding-top: 145px;
+    }
+
+    .rodape-site {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    .rodape-site p {
+        line-height: 1.5;
+    }
+
+    .DivDaTelaInicio {
+        max-width: 100%;
+        padding-right: 12px;
+        padding-left: 12px;
+        text-align: center;
+    }
+
+    .TextoDaTelaInicio {
+        font-size: clamp(24px, 7vw, 42px);
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .descubra-menu,
+    .descubra-menu a {
+        transition: none;
+    }
+}

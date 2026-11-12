@@ -1,0 +1,212 @@
+.dicas-main {
+    min-height: calc(100vh - 90px);
+    width: 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 120px clamp(20px, 6vw, 80px) 48px;
+    color: #302544;
+}
+
+.dicas-pagina {
+    width: min(100%, 960px);
+    margin: 0 auto;
+}
+
+.dicas-cabecalho {
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid #b6ffff;
+}
+
+.dicas-categoria {
+    margin: 0 0 8px;
+    color: #6427ce;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.dicas-cabecalho h1 {
+    margin: 0;
+    color: #302544;
+    font-size: clamp(30px, 5vw, 44px);
+}
+
+.dicas-resumo {
+    margin: 10px 0 0;
+    color: #655b73;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.dicas-bloco {
+    margin: 0 0 24px;
+    padding: 20px;
+    border: 1px solid #d9c8f3;
+    border-left: 4px solid #8964c7;
+    border-radius: 8px;
+    background: #ffffffb8;
+}
+
+.dicas-bloco h2 {
+    margin: 0 0 16px;
+    color: #4a2d78;
+    font-size: 23px;
+}
+
+.dicas-bloco h3 {
+    margin: 20px 0 10px;
+    color: #5c4383;
+    font-size: 18px;
+}
+
+.dicas-espaco {
+    min-height: 68px;
+    margin: 0;
+    padding: 14px;
+    border: 1px dashed #bba8da;
+    border-radius: 5px;
+    color: #786b88;
+    line-height: 1.5;
+}
+
+.dicas-lista {
+    margin: 0;
+    padding-left: 26px;
+    color: #786b88;
+}
+
+.dicas-lista li {
+    min-height: 42px;
+    padding: 9px 10px;
+    border-bottom: 1px dashed #d9c8f3;
+}
+
+.dicas-imagem {
+    max-width: 860px;
+    margin: clamp(24px, 4vw, 36px) auto;
+    padding: 0;
+}
+
+.dicas-imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #f7f1ff;
+    box-shadow: 0 10px 24px rgba(48, 37, 68, 0.1);
+    object-fit: contain;
+}
+
+.dicas-legenda {
+    display: block;
+    padding: 10px 4px 0;
+    color: #786b88;
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: left;
+}
+
+.dicas-credito {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.dicas-credito a {
+    color: #5423a8;
+    text-underline-offset: 2px;
+}
+
+.dicas-imagem-indisponivel {
+    display: grid;
+    min-height: 96px;
+    place-items: center;
+    padding: 16px;
+    border: 1px dashed #bba8da;
+    border-radius: 8px;
+    background: #f7f1ff;
+    color: #786b88;
+    text-align: center;
+}
+
+.dicas-imagem-indisponivel img {
+    display: none;
+}
+
+.dicas-bloco p {
+    color: #51475f;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.dicas-indice ol,
+.dicas-indice ul {
+    margin: 0;
+    padding-left: 24px;
+    color: #51475f;
+    line-height: 1.8;
+}
+
+.dicas-indice a,
+.dicas-navegacao a {
+    color: #5423a8;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.dicas-indice a:hover,
+.dicas-navegacao a:hover {
+    color: #28025a;
+}
+
+.dicas-navegacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 0;
+}
+
+@media (max-width: 600px) {
+    .dicas-main {
+        padding: 108px 16px 32px;
+    }
+
+    .dicas-cabecalho {
+        margin-bottom: 22px;
+    }
+
+    .dicas-resumo {
+        font-size: 15px;
+    }
+
+    .dicas-bloco {
+        margin-bottom: 16px;
+        padding: 16px;
+    }
+
+    .dicas-bloco h2 {
+        font-size: 20px;
+    }
+
+    .dicas-bloco h3 {
+        font-size: 17px;
+    }
+
+    .dicas-imagem {
+        margin: 22px auto;
+    }
+
+    .dicas-imagem img {
+        max-height: 320px;
+        border-radius: 6px;
+    }
+
+    .dicas-legenda {
+        font-size: 13px;
+    }
+}
